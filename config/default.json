@@ -1,0 +1,44 @@
+{
+  "host": "localhost",
+  "loggingLevel": "info",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "secret": "c154fc701878e27956845e390c4517448dccfb8261cb98560be299451b57870b10e8dca0ad9a44f53369bc3237d898a02eefb78dd08721e092916e9d0aed145da3b5ac82aa582bb6aa1e79e427936b6a10bb4b75d814cdd3c3c945f56d95ea97411e3d905c8fcfc3b41122ce2d8d641381e2a5a358a635efdb9ba051028ee3edd4923e93f92d6ab41a1a8a3e774438c1a17a7071b5cbebe16d37605d1a517691142cde6d8e8b80be5bff212af28798c05027c13d862efdb9241b3e226c1ad15465e540bcede18294c0883b1705773446083921f359d305638cb318a0007e743a668475a3d225cabfbbe03b602fd502960a8cb21e6900ae4add9d77846a48e09a",
+    "strategies": ["jwt"],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "successRedirect": "/",
+      "scope": ["profile openid email"]
+    },
+    "github": {
+      "clientID": "GITHUB_CLIENT_ID",
+      "clientSecret": "GITHUB_CLIENT_SECRET",
+      "successRedirect": "/"
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": true,
+      "secure": false
+    }
+  },
+  "postgres": "postgres://postgres:postgres@db:5432/daily_log"
+}

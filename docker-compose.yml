@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  server:
+    container_name: daily-log-server
+    # build: .
+    image: node:8.2.1
+    volumes:
+      - .:/home/nodejs/app
+    working_dir: /home/nodejs/app
+    command: sh -c 'yarn; yarn start'
+    ports:
+      - "3030:3030"
+    links:
+      - db
+    depends_on:
+      - db
+
+  db:
+    container_name: daily-log-db
+    image: postgres:9.6.3
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "daily_log"

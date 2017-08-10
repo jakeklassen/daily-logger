@@ -1,0 +1,4 @@
+{
+  "loggingLevel": "test",
+  "postgres": "postgres://postgres:postgres@db:5432/daily_log_test"
+}
